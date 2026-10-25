@@ -1,0 +1,21 @@
+﻿Technical Team Access & Permission Management:
+
+Step-by-Step Implementation
+Create the technical group:
+
+groupadd sysadmins :
+
+Create a new user and assign to the group:
+useradd -m -g sysadmins devops_user
+
+Create the shared working directory:
+mkdir -p /opt/sysadmin_data
+
+Change directory ownership to root and the sysadmins group:
+chown -R root:sysadmins /opt/sysadmin_data
+
+Set restrictive directory permissions (Read/Write/Execute for Owner & Group only):
+chmod -R 770 /opt/sysadmin_data
+
+Verify the final configuration:
+ls -ld /opt/sysadmin_data
